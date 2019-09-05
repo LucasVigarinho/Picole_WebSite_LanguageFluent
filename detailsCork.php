@@ -1,11 +1,36 @@
 <!-- marcia-tobias student number 2985044. -->
 <!-- lucas-vigarinho student number 2989295. -->
 
-<!-- Include action to load header. -->
+<!-- Is an instruction to the browser about what version of html the page is written in
+That declaration must be the very first thing in your HTML document, even before the HTML tag. -->
+<!DOCTYPE html>
+<!-- That element is a container for a metadata. -->
+<head>
+    <!-- Define a title for my HTML document. -->
+    <title>LanguagFluent</title>
+    <!-- Meta element is used to specify which character set is used, page description, keywords, author,
+   and other metadata. -->
+    <!-- Define the character set used. -->
+    <meta charset="utf-8">
+    <!-- Required meta tag for bootstrap (responsive). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load the reset file, with this is guarantee the page will run correctly at different browsers. -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- Load the bootstrap file, with this is possible to apply changes using the library bootstrap. -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Load the css file, with this is possible to apply the changes using the style file. -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Load the query file, with this is possible to make the site responsive. -->
+    <link rel="stylesheet" href="../css/queries.css">
+</head>
 <?php include ('../views/header.php'); ?>
-
 <div class="mt-4"></div>
 <div class="container">
+
     <div class="breadcrumb d-flex justify-content-between ">
         <div class="container ">
             <div class="row ">
@@ -19,7 +44,67 @@
         </div>
     </div>
 
-    <?php include ('../views/searchBar.php'); ?>
+
+    <!-- Creating a main container container with the -->
+    <div class="container justify-content-right pt-3">
+        <!-- Creating a container to the searches fields -->
+        <form action="search" method="post" class="d-block d-sm-12 d-lg-flex mb-4">
+            <!-- Creating the container of the fields for search -->
+            <div class="fields d-block d-lg-flex">
+                <!-- creating the text field search first field -->
+                <div class="text-field-search one-third"><input type="text" class="form-control" placeholder="Keyword search..."></div>
+                <div class="select-wrap one-third">
+                    <!-- creating the course field, describing some standard course titles -->
+                    <select id="courseId" class="form-control">
+                        <option value="">Course</option>
+                        <option value="">General English</option>
+                        <option value="">Business English</option>
+                        <option value="">Intensive English</option>
+                        <option value="">One-to-one</option>
+                        <option value="">Others</option>
+                    </select>
+                </div>
+                <!-- Creating the cities field, defining the cities of the institutions subscribed -->
+                <div class="select-wrap one-third">
+                    <select id="citiesId" class="form-control">
+                        <option value="">All cities</option>
+                        <option value="">Dublin</option>
+                        <option value="">Cork</option>
+                        <option value="">Galway</option>
+                        <option value="">Limerick</option>
+                        <option value="">Belfast</option>
+                    </select>
+                </div>
+                <!-- Creating the level field, defining in which level the user is looking for courses-->
+                <div class="select-wrap one-third">
+                    <select id="levelId" class="form-control">
+                        <option value="">Difficulty level</option>
+                        <option value="">Beginner</option>
+                        <option value="">Intermediate</option>
+                        <option value="">Advance</option>
+                        <option value="">Proficient</option>
+                    </select>
+                </div>
+                <!-- Creating the accommodation field, describing the standard accommodations -->
+                <div class="select-wrap one-third">
+                    <select id="accommodationId" class="form-control">
+                        <option value="">Accommodation</option>
+                        <option value="">No accommodation</option>
+                        <option value="">accommodation lowest</option>
+                        <option value="">apartment single</option>
+                        <option value="">apartment shared</option>
+                        <option value="">homestay s</option>
+                        <option value="">on campus</option>
+                    </select>
+                </div>
+                <!-- Creating the fields to absorb the limit price to the user define in its search-->
+                <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Min price €"></div>
+                <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Max price €"></div>
+            </div>
+            <!-- Creating the input search to serve as an action to look for the search stipulated-->
+            <input type="submit" class="search-submit btn col-sm-12 col-lg-1 btn-primary" value="Search">
+        </form>
+    </div>
 
     <!-- Creating a container to describe the title of the page -->
     <div class="row  ">
@@ -41,127 +126,24 @@
                         <!-- Creating the container to insert the image and defining the different formats according to the display size -->
                         <div class="col-md-3 col-lg-3 ">
                             <!-- defining the image to be shown -->
-                            <img src="../images/<?php
-                            // Shows the image of the school using the information from the database.
-                            // Create connection
-                            $conn = new mysqli("localhost", "root", "root", "language_fluent");
-                            // Check connection
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            }
-
-                            //$nameInstitution = $_POST['keyword'];
-                            $resultInstitution = "SELECT * FROM Institution WHERE institution_Name LIKE '%Cork%' ";
-                            $result = mysqli_query($conn, $resultInstitution);
-
-                            if ($result->num_rows > 0) {
-
-                                // output data of each row
-                                while($row = $result->fetch_assoc()) {
-
-                                    echo $row["institution_Image_one"];
-
-                                }
-                            } else {
-                                echo "0 results";
-                            }
-
-                            $conn->close(); ?>" class="img-thumbnail mt-4" alt="Card Image">
+                            <img src="../images/Cork%20English%20World.jpg" class="img-thumbnail mt-4" alt="Card Image">
                         </div>
                         <!-- Creating the container article to describe the institution -->
                         <article class="col-md-6  col-lg-6 card-body ">
                             <div class="list-title ">
                                 <ul class="list-inline list-unstyled">
-                                    <li class="list-inline-item "><a href="https://www.cew.ie/"><h4>
-                                                <?php
-                                                // Shows the name of the school using the information from the database.
-                                                // Create connection
-                                                $conn = new mysqli("localhost", "root", "root", "language_fluent");
-                                                // Check connection
-                                                if ($conn->connect_error) {
-                                                    die("Connection failed: " . $conn->connect_error);
-                                                }
-
-                                                $resultInstitution = "SELECT * FROM Institution WHERE institution_Name LIKE '%Cork%' ";
-                                                $result = mysqli_query($conn, $resultInstitution);
-
-                                                if ($result->num_rows > 0) {
-
-                                                    // output data of each row
-                                                    while($row = $result->fetch_assoc()) {
-
-                                                        echo $row["institution_Name"];
-                                                    }
-                                                } else {
-                                                    echo "0 results";
-                                                }
-
-                                                $conn->close();
-                                                ?>
-                                            </h4></a></li>
+                                    <li class="list-inline-item "><a href="https://www.cew.ie/"><h4>Cork English World</h4></a></li>
                                     <li class="list-inline-item text-warning"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
                                     <li class="list-inline-item text-success"><i class="fa fa-thumbs-up"></i></li>
                                 </ul>
                             </div>
                             <!-- Creating the container to describe and link the location, address and map (google map)-->
                             <div class="list-location">
-                                <a href="https://www.google.com/maps/place/Cork+English+World/@51.894949,-8.4794481,15z/data=!4m5!3m4!1s0x0:0xb16f13e4f29b1e47!8m2!3d51.894949!4d-8.4794481"><i class="fa fa-map-marker"></i><small> Address:
-                                        <?php
-                                        // Shows the address of the school using the information from the database.
-                                        // Create connection
-                                        $conn = new mysqli("localhost", "root", "root", "language_fluent");
-                                        // Check connection
-                                        if ($conn->connect_error) {
-                                            die("Connection failed: " . $conn->connect_error);
-                                        }
-
-                                        $resultInstitution = "SELECT * FROM Institution WHERE institution_Name LIKE '%Cork%' ";
-                                        $result = mysqli_query($conn, $resultInstitution);
-
-                                        if ($result->num_rows > 0) {
-
-                                            // output data of each row
-                                            while($row = $result->fetch_assoc()) {
-
-                                                echo $row["institution_Address"];
-                                            }
-                                        } else {
-                                            echo "0 results";
-                                        }
-
-                                        $conn->close();
-                                        ?>
-                                    </small> </a>
+                                <a href="https://www.google.com/maps/place/Cork+English+World/@51.894949,-8.4794481,15z/data=!4m5!3m4!1s0x0:0xb16f13e4f29b1e47!8m2!3d51.894949!4d-8.4794481"><i class="fa fa-map-marker"></i><small> Address: Crawford Business Park, Bishop St, The Lough, Cork</small> </a>
                             </div>
                             <!-- Creating a container to set and show up a description of the institution -->
                             <div class="list-description">
-                                <small style="color: #38c93d ">
-                                    <?php
-                                    // Shows the description of the school using the information from the database.
-                                    // Create connection
-                                    $conn = new mysqli("localhost", "root", "root", "language_fluent");
-                                    // Check connection
-                                    if ($conn->connect_error) {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    }
-
-                                    $resultInstitution = "SELECT * FROM Institution WHERE institution_Name LIKE '%Cork%' ";
-                                    $result = mysqli_query($conn, $resultInstitution);
-
-                                    if ($result->num_rows > 0) {
-
-                                        // output data of each row
-                                        while($row = $result->fetch_assoc()) {
-
-                                            echo $row["institution_Description"];
-                                        }
-                                    } else {
-                                        echo "0 results";
-                                    }
-
-                                    $conn->close();
-                                    ?>
-                                </small>
+                                <small style="color: #38c93d ">CEW promotes excellence through lifelong learning by providing a high quality range of English Courses to equip students with accredited skills that have international recognition and that are relevant to the present and future workplace.</small>
                             </div>
                         </article>
 
@@ -363,8 +345,11 @@
             </div>
         </div>
     </div> <!-- class row mx-0 -->
-<!-- Load the page student reviews. -->
-    <?php include ('../views/studentReviews.php'); ?>
+
+    <!-- Load the page student reviews. -->
+    <?php include('../views/studentReviews.php'); ?>
+
+
 </div>
 
 <!-- Text and icons aligned at the center of the page -->

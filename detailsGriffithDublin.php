@@ -467,5 +467,5 @@
     <!-- Load the page student reviews. -->
     <?php include ('../views/studentReviews.php'); ?>
 
-<!-- Text and icons aligned at the center of the page -->
-<?php include ('../views/footer.php'); ?>
+    <!-- Text and icons aligned at the center of the page -->
+    <?php include ('../views/footer.php'); ?>

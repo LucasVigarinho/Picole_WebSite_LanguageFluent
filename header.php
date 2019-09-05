@@ -1,6 +1,14 @@
 <!-- marcia-tobias student number 2985044. -->
 <!-- lucas-vigarinho student number 2989295. -->
 
+<?php
+// allow to store variables to be used in all page.
+session_start();
+
+//Print the email for the user, after log ing.
+if(!$_SESSION['email'])
+?>
+
 <!-- Is an instruction to the browser about what version of html the page is written in
 That declaration must be the very first thing in your HTML document, even before the HTML tag. -->
 <!DOCTYPE html>
@@ -72,10 +80,17 @@ That declaration must be the very first thing in your HTML document, even before
                 <!-- Links of pages in the website -->
                 <ul class="navbar-nav text-right">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log In</a>
+                        <a class="nav-link" href="../views/registration.php">Log In</a>
+                        <div class="justify-right">
+                            <!-- Print the email of the user. -->
+                            <p class="small" style="color:#4ece51">
+                                <?php
+                                echo $_SESSION['email'];
+                                ?></p>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log Out</a>
+                        <a class="nav-link" href="../files/logout.php">Log Out</a>
                     </li>
                 </ul>
             </nav>

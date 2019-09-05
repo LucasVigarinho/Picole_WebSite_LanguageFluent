@@ -184,3 +184,8 @@ section .icons {
     font-size: 14px;
     font-color:#262626;
 }
+
+/* REGISTER, LOGIN IN, LOG OUT - spacing from the main-menu. */
+.login-panel {
+    margin-top: 50%;
+}

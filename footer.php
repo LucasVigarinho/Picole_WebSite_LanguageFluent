@@ -1,5 +1,5 @@
 <!-- marcia-tobias student number 2985044. -->
-<!-- lucas-virgarinho student number 2989295. -->
+<!-- lucas-vigarinho student number 2989295. -->
 
 <!-- Text and icons aligned at the center of the page. -->
 <footer class="text-center small">
@@ -10,5 +10,5 @@
         <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
         <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
            target="_blank">CC 3.0 BY</a><br>Copyright &copy; 2019 | Designed by Marcia Tobias student number 2985044
-            & Lucas Virgarinho student number 2989295</p>
+            & Lucas Vigarinho student number 2989295</p>
 </footer>

@@ -216,4 +216,9 @@
         padding-top: 5%;
 
     }
+
+    /* REGISTER, LOGIN IN, LOG OUT - spacing from the main-menu. */
+    .login-panel {
+        margin-top: 25%;
+    }
 }
